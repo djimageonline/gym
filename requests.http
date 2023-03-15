@@ -1,0 +1,8 @@
+
+### Index
+GET http://localhost:3000/exercises.json
+
+###Create
+POST http://localhost:3000/exercises.json
+
+

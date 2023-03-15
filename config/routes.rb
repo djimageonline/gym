@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/exercises" => "exercises#index"
+  post "/exercises" => "exercises#create"
 
 end
