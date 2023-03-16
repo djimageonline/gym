@@ -1,8 +1,18 @@
 
-### Index
+### Index Exercise
 GET http://localhost:3000/exercises.json
 
-###Create
+### Create Exercise
 POST http://localhost:3000/exercises.json
+Content-Type: application/json
 
+{
+  "name": "Jumping Jacks",
+  "description": "jump up and down",
+  "image_url": "test.com",
+  "video_url": "videotest.com"
+}
 
+### Show Exercise
+
+GET http://localhost:3000/exercises/2.json
