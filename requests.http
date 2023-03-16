@@ -26,3 +26,6 @@ Content-Type: application/json
   "image_url": "newtest.com",
   "video_url": "newvideo.com"
 }
+
+### Destroy Exercise
+DELETE http://localhost:3000/exercises/5.json
