@@ -1,4 +1,4 @@
-@jwt =eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzkwMTk1NTh9.2bwie9dBa4vJ1IEvTHBf1Ly-6fZ08cLJ3fw3RI_HHmk
+@jwt =eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NzkwOTA0MDZ9.4Faqo9bwQniBVgAZU2fd-FMD-W6gqtTlYvQmUyfEba8
 
 ### Index Exercise
 GET http://localhost:3000/exercises.json
@@ -6,10 +6,10 @@ GET http://localhost:3000/exercises.json
 ### Create Exercise
 POST http://localhost:3000/exercises.json
 Content-Type: application/json
-# Authorization: Bearer {{jwt}}
+Authorization: Bearer {{jwt}}
 
 {
-  "name": "Chinese Jacks",
+  "name": "CHOMP Jacks",
   "description": "test  chinese jump",
   "image_url": "chinesejacks.com",
   "video_url": "chinesejacksvideo.com"
@@ -24,7 +24,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "name": "K Flops",
+  "name": "Z Flops",
   "description": "Texasflop on belly",
   "image_url": "newtest.com",
   "video_url": "newvideo.com"
@@ -42,8 +42,8 @@ Content-Type: application/json
 
 {
 
-  "name": "test2",
-  "email": "test2@test.com",
+  "name": "Johnny",
+  "email": "Johnny@test.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -53,6 +53,6 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "test2@test.com",
+  "email": "Johnny@test.com",
   "password": "password"
 }

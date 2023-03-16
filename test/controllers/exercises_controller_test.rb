@@ -16,6 +16,9 @@ class ExercisesControllerTest < ActionDispatch::IntegrationTest
 
       assert_response 200
     end
+
+    post "/exercise.json", params: {}
+    assert_response 422
   end
 
   test "show" do
@@ -23,7 +26,7 @@ class ExercisesControllerTest < ActionDispatch::IntegrationTest
     assert_response 200
 
     data = JSON.parse(response.body)
-    assert_equal ["id", "name", "description", "image_url", "video_url", "created_at", "updated_at"], data.keys
+    assert_equal ["name", "description", "image_url", "video_url"], data.keys
   end
 
 
@@ -34,6 +37,11 @@ class ExercisesControllerTest < ActionDispatch::IntegrationTest
     
     data = JSON.parse(response.body)
     assert_equal "Updated Exercise", data["name"]
+    assert_equal exercise.description, data["description"]
+
+
+    patch "/exercise/#{exercise.id}.json", params: {name: ""}
+    assert_response 422
   end
 
   test "destroy" do

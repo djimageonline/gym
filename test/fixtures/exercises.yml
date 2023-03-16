@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  description: MyText
+  description: I am happy that I am now focused on my new time with software and tech.  Let's keep learning."
   image_url: MyString
   video_url: MyString
 
 two:
   name: MyString
-  description: MyText
+  description: "I am happy that I am now focused on my new time with software and tech.  Let's keep learning."
   image_url: MyString
   video_url: MyString
