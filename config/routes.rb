@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   # patch "/exercises/:id" => "exercises#update"
   # delete "/exercises/:id" => "exercises#destroy"
 
+  # exercise routes
   resources :exercises
+
+  # user routes
+  post "/users" => "users#create"
 
 end
 
