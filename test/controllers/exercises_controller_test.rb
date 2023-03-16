@@ -36,4 +36,11 @@ class ExercisesControllerTest < ActionDispatch::IntegrationTest
     assert_equal "Updated Exercise", data["name"]
   end
 
+  test "destroy" do
+    assert_difference "Exercise.count", -1 do
+      delete "/exercises/#{Exercise.first.id}.json"
+      assert_response 200
+    end
+  end
+
 end
