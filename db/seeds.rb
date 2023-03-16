@@ -12,4 +12,4 @@
 
 # Exercise.create(name: "Sit ups", description: "laydown and sit up", image_url: "https://images.unsplash.com/photo-1616803689943-5601631c7fec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80", video_url: "https://www.youtube.com/watch?v=IODxDxX7oi4")
 
-User.create(name: "test", email: "test@test.com", password_digest: "password")
+# User.create(name: "test", email: "test@test.com", password_digest: "password")
