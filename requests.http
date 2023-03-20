@@ -2,7 +2,8 @@
 
 
 
-
+### API
+GET https://api.api-ninjas.com/v1/exercises?muscle=biceps
 
 ### Index Exercise
 GET http://localhost:3000/exercises.json
@@ -63,3 +64,8 @@ Content-Type: application/json
   "email": "Johnny@test.com",
   "password": "password"
 }
+
+
+
+### Index Exercise
+GET http://localhost:3000/exercises.json

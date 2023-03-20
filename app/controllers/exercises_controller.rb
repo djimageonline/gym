@@ -7,7 +7,7 @@ class ExercisesController < ApplicationController
   
     muscle = 'biceps'
     response_url = URI("https://api.api-ninjas.com/v1/exercises?muscle=#{muscle}")
-    headers = { 'X-Api-Key' => Gym_app_key, 'Content-Type' => 'application/json' }
+    headers = { 'X-Api-Key' => 'Gym_app_key', 'Content-Type' => 'application/json' }
 
     http = Net::HTTP.new(response_url.host, response_url.port)
     http.use_ssl = true # use HTTPS for secure connection
@@ -19,6 +19,8 @@ class ExercisesController < ApplicationController
     else
       puts "Error: #{response.code} - #{response.message}"
     end
+
+    pp response_url
     
   end
 
