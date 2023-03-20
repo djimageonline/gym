@@ -19,6 +19,12 @@ Rails.application.routes.draw do
   # session routes
   post "/sessions" => "sessions#create"
 
+  # routine routes
+  resources :routines
+
+  # exercise_routine routes
+  resources :exercise_routines
+
 
 end
 

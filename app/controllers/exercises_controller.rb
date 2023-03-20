@@ -1,8 +1,30 @@
 class ExercisesController < ApplicationController
+  require 'uri'
+  require 'net/http'
+
 
   def index
-    @exercises = Exercise.all
-    render template: "exercises/index"
+  
+    muscle = 'biceps'
+    response_url = URI("https://api.api-ninjas.com/v1/exercises?muscle=#{muscle}")
+    headers = { 'X-Api-Key' => Gym_app_key, 'Content-Type' => 'application/json' }
+
+    http = Net::HTTP.new(response_url.host, response_url.port)
+    http.use_ssl = true # use HTTPS for secure connection
+    request = Net::HTTP::Get.new(response_url, headers)
+   
+    response = http.request(request)
+    if response.code == '200'
+      puts response.body
+    else
+      puts "Error: #{response.code} - #{response.message}"
+    end
+    
+  end
+
+  def show
+    @exercise = Exercise.find_by(id: params[:id])
+    render json: @exercise.as_json
   end
 
   # def create
@@ -22,10 +44,7 @@ class ExercisesController < ApplicationController
 
   # end
 
-  def show
-    @exercise = Exercise.find_by(id: params[:id])
-    render template: "exercises/show"
-  end
+
 
   # def update
   #   @exercise = Exercise.find_by(id: params[:id])

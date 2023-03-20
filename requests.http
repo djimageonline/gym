@@ -1,5 +1,9 @@
 @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2Nzk0MDQ0NTZ9.CBV78yujGPHqGJj2kLuE43UH6S6Y8AXPt45AaWb2uD4
 
+
+
+
+
 ### Index Exercise
 GET http://localhost:3000/exercises.json
 

@@ -18,5 +18,36 @@ class RoutinesController < ApplicationController
     end
   end
 
+  def create
+    @routine = Routine.new(
+      user_id:current_user.id,
+      name:params[:name]
+    )
+    
+    if @routine.save
+      render template: "routines/show"
+    else
+      render json: { errors: @routine.errors.full_messages }, status: 422
+    end
+  end
+
+  def update
+    @routine = Routine.find_by(id: params[:id])
+    @routine.name = params[:name] || @routine.name
+    if @routine.save
+      render template: "routines/show"
+    else
+      render json: { errors: @routine.errors.full_messages }, status: :bad_request
+    end
+  end
+
+  def destroy
+    @routine_id = params[:id]
+    @routine = Routine.find(@routine_id)
+
+    @routine.destroy
+    render json: {message: "This has been destroyed"}
+  end  
+
 
 end
