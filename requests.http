@@ -1,7 +1,12 @@
-@jwt =eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NzkwOTA0MDZ9.4Faqo9bwQniBVgAZU2fd-FMD-W6gqtTlYvQmUyfEba8
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2Nzk0MDQ0NTZ9.CBV78yujGPHqGJj2kLuE43UH6S6Y8AXPt45AaWb2uD4
 
 ### Index Exercise
 GET http://localhost:3000/exercises.json
+
+### Show Exercise
+GET http://localhost:3000/exercises/2.json
+
+
 
 ### Create Exercise
 POST http://localhost:3000/exercises.json
@@ -9,29 +14,27 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "name": "CHOMP Jacks",
-  "description": "test  chinese jump",
-  "image_url": "chinesejacks.com",
-  "video_url": "chinesejacksvideo.com"
+  "name": "Sit ups",
+  "description": "test  sit up",
+  "image_url": "Situp.com",
+  "video_url": "Situpvid.com"
 }
 
-### Show Exercise
-GET http://localhost:3000/exercises/2.json
 
 ### Update Exercise
-PATCH http://localhost:3000/exercises/8.json
+PATCH http://localhost:3000/exercises/11.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "name": "Z Flops",
-  "description": "Texasflop on belly",
-  "image_url": "newtest.com",
-  "video_url": "newvideo.com"
+  "name": "Down ups",
+  "description": "test  Down up",
+  "image_url": "Situp.com",
+  "video_url": "Situpvid.com"
 }
 
 ### Destroy Exercise
-DELETE http://localhost:3000/exercises/5.json
+DELETE http://localhost:3000/exercises/10.json
 
 
 #####-------  LOGIN ------------####

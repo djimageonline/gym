@@ -1,6 +1,5 @@
 class Exercise < ApplicationRecord
-  belongs_to :user
-  validates :name, presence: true
-  validates :name, uniqueness: true
-  validates :description, length: {minimum: 10}
+  has_many :routines, through: :exercise_routines
+  has_many :exercise_routines
+ 
 end
