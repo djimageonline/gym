@@ -1,5 +1,5 @@
 class ExercisesController < ApplicationController
-  require 'http'
+
 
   def index
   

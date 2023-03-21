@@ -7,9 +7,8 @@ class ExerciseRoutinesController < ApplicationController
   end
   
   def create
-    exerciseId = params[:exercise]
     name = params[:name]
-    type = params[:type]
+    exercise_type = params[:exercise_type]
     muscle = params[:muscle]
     equipment = params[:equipment]
     difficulty = params[:difficulty]
@@ -19,14 +18,17 @@ class ExerciseRoutinesController < ApplicationController
       name: params[:name]
     )
     
+    # p "test1:"
+    # pp exercise
+
     if !exercise
       exercise = Exercise.new(
         name: name,
-        type: type,
+        exercise_type: exercise_type,
         muscle: muscle,
         equipment: equipment,
         difficulty: difficulty,
-        instructions: instructions,
+        instructions: instructions
       )  
       exercise.save
     end
@@ -35,9 +37,11 @@ class ExerciseRoutinesController < ApplicationController
     exercise_routine = ExerciseRoutine.new(
       user_id: current_user.id,
       exercise_id: exercise.id,
-      routine_id: params[:routine]
+      routine_id: params[:routine_id]
     )
-    
+    # p "test2:"
+    # pp exercise_routine
+
     if exercise_routine.save
       render json: exercise_routine.as_json
     else
@@ -51,7 +55,6 @@ class ExerciseRoutinesController < ApplicationController
   end
 
   def destroy
-    pp params
     @exercise_routine = ExerciseRoutine.where(exercise_id: params[:exercise_id], routine_id: params[:routine_id])
   
     @exercise_routine[0].destroy

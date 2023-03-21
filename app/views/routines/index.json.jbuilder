@@ -1,1 +1,3 @@
-json.array! @routines, partial: "routines/routine", as: :routine
+json.array! @routines do |routine|
+  json.extract! routine, :id, :name
+end

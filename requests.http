@@ -5,8 +5,7 @@
 GET http://localhost:3000/exercises.json
 
 ### Exercise Show
-GET http://localhost:3000/exercises/2.json
-
+GET http://localhost:3000/exercises/.json
 
 
 ### Exercise Create
@@ -68,9 +67,14 @@ Content-Type: application/json
 
 ### ROUTINE INDEX
 GET http://localhost:3000/routines.json
+Authorization: Bearer {{jwt}}
+
+
 
 ### ROUTINE SHOW
 GET http://localhost:3000/routines/2.json
+Authorization: Bearer {{jwt}}
+
 
 ### ROUTINE CREATE
 POST http://localhost:3000/routines.json
@@ -101,6 +105,12 @@ DELETE http://localhost:3000/routines/6.json
 ##  EXERCISE_ROUTINE ----------------------------
 
 
+### EXERCISE_ROUTINE INDEX
+GET http://localhost:3000/exercise_routines
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+
 ### ADD EXERCISE TO ROUTINE
 
 POST http://localhost:3000/exercise_routines.json
@@ -108,10 +118,11 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "name": "Sit ups",
+  "name": "no ups",
   "type": "biceps",
   "muscle": "arms",
   "equipment": "dumbells",
   "difficulty": "beginner",
-  "instructions": "Do it like this"
+  "instructions": "Do it like this",
+  "routine_id": 5
 }
