@@ -32,10 +32,10 @@ class ExerciseRoutinesController < ApplicationController
     end
 
     
-    exercise_routine = exerciseTour.new(
+    exercise_routine = ExerciseRoutine.new(
       user_id: current_user.id,
       exercise_id: exercise.id,
-      tour_id: params[:tour]
+      routine_id: params[:routine]
     )
     
     if exercise_routine.save
@@ -46,13 +46,13 @@ class ExerciseRoutinesController < ApplicationController
   end
 
   def show
-    @exercise_routine = exerciseTour.find_by(id: params[:id])
+    @exercise_routine = ExerciseRoutine.find_by(id: params[:id])
     render json: @exercise_routine
   end
 
   def destroy
     pp params
-    @exercise_routine = exerciseTour.where(exercise_id: params[:brew_id], tour_id: params[:tour_id])
+    @exercise_routine = ExerciseRoutine.where(exercise_id: params[:exercise_id], routine_id: params[:routine_id])
   
     @exercise_routine[0].destroy
     render json: {message: "This has been destroyed"}

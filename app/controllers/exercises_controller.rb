@@ -3,37 +3,32 @@ class ExercisesController < ApplicationController
 
   def index
   
-    muscle = 'biceps'
+    muscle = 'traps'
     response_url = "https://api.api-ninjas.com/v1/exercises?muscle=#{muscle}"
 
-    # response = HTTP.get(response_url, headers ={ "Authorization" => "Bearer #{Rails.application.credentials.gym_api[:api_key]}"}).json
     
     response = HTTP.get(response_url, headers: { 'X-Api-Key' => "#{Rails.application.credentials.gym_api[:api_key]}"})
 
-    p "test1"
-
-    pp Rails.application.credentials.gym_api[:api_key]
+    # pp Rails.application.credentials.gym_api[:api_key]
 
     show = response.parse(:json)
-    pp show
+    
+    index = 0
+    exercise_names = []
+    while index < show.length
+      exercise_names << show[index]["name"]
+      index += 1
+    end
 
-  
-    # exercise_names = []
-
-    # while index < show.length
-    #   exercise_names << show[index]["name"]
-    #   index += 1
-    # end
-
-    # if !show[0]["name"]
-    #   render json: [].as_json
-    # else
-    #   render json:  show.as_json
-    # end
+    if !show[0]["name"]
+      render json: [].as_json
+    else
+      render json:  show.as_json
+    end
   end
 
   def show
-    @exercise = Exercise.find_by(id: params[:id])
+    @exercise = Exercise.find_by(name: params[:name])
     render json: @exercise.as_json
   end
 

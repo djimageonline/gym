@@ -1,18 +1,15 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2Nzk0NDAzNDR9.Q4PSwFy7P_iywV5zoBnuPCB5cIKC624Bv6yBHHTG2Aw
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2Nzk0OTQ2ODJ9.1tx-zzoQZ_RzUVYvFsMthqXzIwH8NyswuLytfWinmjg
 
 
-### API
-GET https://api.api-ninjas.com/v1/exercises?muscle=biceps
-
-### Index Exercise
+### Exercise Index
 GET http://localhost:3000/exercises.json
 
-### Show Exercise
+### Exercise Show
 GET http://localhost:3000/exercises/2.json
 
 
 
-### Create Exercise
+### Exercise Create
 POST http://localhost:3000/exercises.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
@@ -25,7 +22,7 @@ Authorization: Bearer {{jwt}}
 }
 
 
-### Update Exercise
+### Exercise Update
 PATCH http://localhost:3000/exercises/11.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
@@ -37,13 +34,15 @@ Authorization: Bearer {{jwt}}
   "video_url": "Situpvid.com"
 }
 
-### Destroy Exercise
+### Exercise Destroy
 DELETE http://localhost:3000/exercises/10.json
 
 
-#####-------  LOGIN ------------####
 
-### Users create (signup)
+
+##  LOGIN ------------------------------
+
+### SIGNUP Users create (signup)
 POST http://localhost:3000/users.json
 Content-Type: application/json
 
@@ -55,7 +54,7 @@ Content-Type: application/json
   "password_confirmation": "password"
 }
 
-### Session Create (Userlogin)
+### LOGIN Session Create (Userlogin)
 POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
@@ -64,3 +63,55 @@ Content-Type: application/json
   "password": "password"
 }
 
+
+##  ROUTINE -----------------------------------
+
+### ROUTINE INDEX
+GET http://localhost:3000/routines.json
+
+### ROUTINE SHOW
+GET http://localhost:3000/routines/2.json
+
+### ROUTINE CREATE
+POST http://localhost:3000/routines.json
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{ 
+  "name": "Friday"
+}
+
+
+### ROUTINE UPDATE
+PATCH http://localhost:3000/routines/6.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{ 
+  "name": "SNOW DAY"
+}
+
+
+### ROUTINE DESTROY
+DELETE http://localhost:3000/routines/6.json
+
+
+
+
+##  EXERCISE_ROUTINE ----------------------------
+
+
+### ADD EXERCISE TO ROUTINE
+
+POST http://localhost:3000/exercise_routines.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "name": "Sit ups",
+  "type": "biceps",
+  "muscle": "arms",
+  "equipment": "dumbells",
+  "difficulty": "beginner",
+  "instructions": "Do it like this"
+}

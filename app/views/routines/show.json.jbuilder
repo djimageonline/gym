@@ -1,1 +1,1 @@
-json.partial! "routines/routine", routine: @routines
+json.partial! "routines/routine", routine: @routine
