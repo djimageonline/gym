@@ -1,27 +1,35 @@
 class ExercisesController < ApplicationController
-  require 'uri'
-  require 'net/http'
-
+  require 'http'
 
   def index
   
     muscle = 'biceps'
-    response_url = URI("https://api.api-ninjas.com/v1/exercises?muscle=#{muscle}")
-    headers = { 'X-Api-Key' => 'Gym_app_key', 'Content-Type' => 'application/json' }
+    response_url = "https://api.api-ninjas.com/v1/exercises?muscle=#{muscle}"
 
-    http = Net::HTTP.new(response_url.host, response_url.port)
-    http.use_ssl = true # use HTTPS for secure connection
-    request = Net::HTTP::Get.new(response_url, headers)
-   
-    response = http.request(request)
-    if response.code == '200'
-      puts response.body
-    else
-      puts "Error: #{response.code} - #{response.message}"
-    end
-
-    pp response_url
+    # response = HTTP.get(response_url, headers ={ "Authorization" => "Bearer #{Rails.application.credentials.gym_api[:api_key]}"}).json
     
+    response = HTTP.get(response_url, headers: { 'X-Api-Key' => "#{Rails.application.credentials.gym_api[:api_key]}"})
+
+    p "test1"
+
+    pp Rails.application.credentials.gym_api[:api_key]
+
+    show = response.parse(:json)
+    pp show
+
+  
+    # exercise_names = []
+
+    # while index < show.length
+    #   exercise_names << show[index]["name"]
+    #   index += 1
+    # end
+
+    # if !show[0]["name"]
+    #   render json: [].as_json
+    # else
+    #   render json:  show.as_json
+    # end
   end
 
   def show
@@ -29,6 +37,12 @@ class ExercisesController < ApplicationController
     render json: @exercise.as_json
   end
 
+
+
+
+
+
+  
   # def create
   #   @exercise = Exercise.new(
   #     user_id:current_user.id,

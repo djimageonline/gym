@@ -1,5 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2Nzk0MDQ0NTZ9.CBV78yujGPHqGJj2kLuE43UH6S6Y8AXPt45AaWb2uD4
-
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2Nzk0NDAzNDR9.Q4PSwFy7P_iywV5zoBnuPCB5cIKC624Bv6yBHHTG2Aw
 
 
 ### API
@@ -65,7 +64,3 @@ Content-Type: application/json
   "password": "password"
 }
 
-
-
-### Index Exercise
-GET http://localhost:3000/exercises.json
